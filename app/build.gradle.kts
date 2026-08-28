@@ -4,11 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.notasapp_sqlite"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.notasapp_sqlite"
@@ -33,6 +29,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+   buildFeatures {
+       viewBinding = true
+   }
+
 }
 
 dependencies {
