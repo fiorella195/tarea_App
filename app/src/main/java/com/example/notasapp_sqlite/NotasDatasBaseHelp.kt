@@ -1,5 +1,6 @@
 package com.example.notasapp_sqlite
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -22,7 +23,7 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
            "DROP TABLE IF EXISTS $TABLE_NAME"
         p0?.execSQL(dropTableQuery)
         onCreate(p0)
-        
+
     }
 
     companion object{
@@ -33,4 +34,27 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
         private const val COLUMNS_TITLE = "titulo"
         private const val COLUMN_DESCRIPTION = "descripcion"
     }
+
+
+    fun inserNota (nota: Nota) {
+        val p0= writableDatabase
+
+        val values = ContentValues().apply {
+            put(COLUMNS_TITLE, nota.titulo)
+            put(COLUMN_DESCRIPTION, nota.descripcion)
+        }
+
+
+        p0.insert(TABLE_NAME, null, values)
+        p0.close()
+    }
+
+
+
+
+
+
+
+
+
 }
