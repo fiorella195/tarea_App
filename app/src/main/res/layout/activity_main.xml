@@ -26,6 +26,7 @@
      android:id="@+id/notasRV"
      android:layout_below="@+id/txtNotas"
      android:padding="15dp"
+     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
      tools:listitem="@layout/item_nota"
      android:layout_width="match_parent"
      android:layout_height="match_parent"

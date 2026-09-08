@@ -27,13 +27,13 @@ class NotasAdaptador (
     }
 
     class NotaViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val itemTitulo : TextView = itemView.findViewById(R.id.item_descripcion)
+        val itemTitulo : TextView = itemView.findViewById(R.id.item_titulo)
         val itemDescripcion : TextView = itemView.findViewById(R.id.item_descripcion)
     }
 
-    fun refrfescarLista(nuevaNota : List<Nota>){
+    fun refrescarLista(nuevaNota : List<Nota>){
         notas= nuevaNota
         notifyDataSetChanged()
     }
-    
+
 }

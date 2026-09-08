@@ -12,6 +12,8 @@ import com.example.notasapp_sqlite.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var  binding: ActivityMainBinding
+    private lateinit var db: NotasDatasBaseHelp
+    private lateinit var notasAdaptador: NotasAdaptador
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
+
+        db = NotasDatasBaseHelp(this)
+
+        notasAdaptador = NotasAdaptador(db.getALLNotas(),this)
+        binding.notasRV.adapter = notasAdaptador
+
 
         binding.FABagregarNota.setOnClickListener {
 
@@ -34,4 +42,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        notasAdaptador.refrescarLista(db.getALLNotas())
+    }
+
 }
