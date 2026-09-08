@@ -49,6 +49,29 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
         p0.close()
     }
 
+    fun getALLNotas () : List <Nota> {
+
+        val listaNotas = mutableListOf<Nota>()
+        val db =readableDatabase
+        val query ="SELE * FROM $TABLE_NAME"
+        val cursor = db.rawQuery(query,null)
+
+        while (cursor.moveToNext()){
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+            val titulo = cursor.getString(cursor.getColumnIndexOrThrow(COLUMNS_TITLE))
+            val descripcion = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
+
+            val nota = Nota (id,titulo,descripcion)
+            listaNotas.add(nota)
+
+        }
+
+        cursor.close()
+        db.close()
+        return listaNotas
+
+    }
+
 
 
 
