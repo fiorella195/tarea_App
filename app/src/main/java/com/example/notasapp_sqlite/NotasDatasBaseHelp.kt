@@ -53,7 +53,7 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
 
         val listaNotas = mutableListOf<Nota>()
         val db =readableDatabase
-        val query ="SELE * FROM $TABLE_NAME"
+        val query ="SELECT * FROM $TABLE_NAME"
         val cursor = db.rawQuery(query,null)
 
         while (cursor.moveToNext()){
@@ -71,13 +71,5 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
         return listaNotas
 
     }
-
-
-
-
-
-
-
-
 
 }
