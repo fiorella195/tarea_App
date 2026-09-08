@@ -90,7 +90,7 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
     fun update (nota: Nota){
         val db = writableDatabase
         val values = ContentValues().apply {
-            put(COLUMNS_TITLE, nota.id)
+            put(COLUMNS_TITLE, nota.titulo)
             put(COLUMN_DESCRIPTION, nota.descripcion)
         }
 
