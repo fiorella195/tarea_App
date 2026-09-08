@@ -87,7 +87,19 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
         return Nota (id, titulo, descripcion)
     }
 
+    fun update (nota: Nota){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMNS_TITLE, nota.id)
+            put(COLUMN_DESCRIPTION, nota.descripcion)
+        }
 
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArg = arrayOf(nota.id.toString())
+        db.update(TABLE_NAME,values,whereClause, whereArg)
+        db.close()
+
+    }
 
 
 
