@@ -36,7 +36,7 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
     }
 
 
-    fun inserNota (nota: Nota) {
+    fun insertNota (nota: Nota) {
         val p0= writableDatabase
 
         val values = ContentValues().apply {
@@ -49,7 +49,7 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
         p0.close()
     }
 
-    fun getALLNotas () : List <Nota> {
+    fun getAllNotas () : List <Nota> {
 
         val listaNotas = mutableListOf<Nota>()
         val db =readableDatabase
@@ -97,6 +97,15 @@ class NotasDatasBaseHelp (context: Context) : SQLiteOpenHelper(
         val whereClause = "$COLUMN_ID = ?"
         val whereArg = arrayOf(nota.id.toString())
         db.update(TABLE_NAME,values,whereClause, whereArg)
+        db.close()
+
+    }
+
+    fun deleteNota (idNota: Int){
+        val db = writableDatabase
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(idNota.toString())
+        db.delete(TABLE_NAME, whereClause, whereArgs)
         db.close()
 
     }

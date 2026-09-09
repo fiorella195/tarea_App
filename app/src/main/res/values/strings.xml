@@ -8,6 +8,7 @@
     <string name="item_titulo">titulo</string>
     <string name="item_descripcion">descripcion</string>
     <string name="txtActualizar">actualizar Nota</string>
-
+    <string name="cd_editar">Editar nota</string>
+    <string name="cd_eliminar">Eliminar nota</string>
 
 </resources>

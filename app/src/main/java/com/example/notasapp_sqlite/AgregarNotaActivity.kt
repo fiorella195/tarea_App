@@ -46,7 +46,7 @@ class AgregarNotaActivity : AppCompatActivity() {
 
     private fun guardarNota(titulo: String, descripcion: String){
         val nota = Nota(0,titulo,descripcion)
-        p0.inserNota(nota)
+        p0.insertNota(nota)
         startActivity(Intent(applicationContext, MainActivity:: class.java))
         finishAffinity()
         Toast.makeText(applicationContext, "se a agragado al nota", Toast.LENGTH_SHORT).show()

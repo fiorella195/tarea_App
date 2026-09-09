@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         db = NotasDatasBaseHelp(this)
 
-        notasAdaptador = NotasAdaptador(db.getALLNotas(),this)
+        notasAdaptador = NotasAdaptador(db.getAllNotas(),this)
         binding.notasRV.adapter = notasAdaptador
 
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        notasAdaptador.refrescarLista(db.getALLNotas())
+        notasAdaptador.refrescarLista(db.getAllNotas())
     }
 
 }
